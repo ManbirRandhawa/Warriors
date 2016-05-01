@@ -1,0 +1,1 @@
+insert into team(team_name) values (Warriors), (Cavaliers), (Thunder);

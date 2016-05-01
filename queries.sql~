@@ -1,0 +1,32 @@
+insert into teams (team_name) values ('Lakers'), ('Cavaliers'), ('Thunder');
+
+insert into player_position(position_name) values ('Point_Guard'), ('Shooting_Guard'), ('Small_Forward'), ('Power_Forward'), ('Center');
+
+CREATE TABLE `statistics` (
+  `player_id` int(11) NOT NULL,
+  `points` int(11) DEFAULT NULL,
+  `assists` int(11) DEFAULT NULL,
+  `rebounds` int(11) DEFAULT NULL,
+  `steals` int(11) DEFAULT NULL,
+  `turnovers` int(11) DEFAULT NULL,
+  `fgpercent` decimal (3,2) DEFAULT NULL,
+  `three_pt_percent` decimal (3,2) DEFAULT NULL,
+  foreign key(player_id) references players(player_id)
+) 
+
+CREATE TABLE `player_position` (
+  `position_name` varchar(30) NOT NULL PRIMARY KEY
+)
+
+CREATE TABLE `teams` (
+  `team_name` varchar(30) NOT NULL PRIMARY KEY
+)
+
+CREATE TABLE `player` (
+  `first_name` varchar(30) DEFAULT NULL,
+  `last_name` varchar(30) DEFAULT NULL,
+  `position_name` varchar(30),
+  `team_name` varchar(30),
+  foreign key(position_name) references player_position(position_name),
+  foreign key(team_name) references teams(team_name)
+)

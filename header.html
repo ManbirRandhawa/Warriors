@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <style>
+  label { display: block; }
+  select { width: 120px; }
+  .overflow { height: 200px; }
+  </style>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+</head>
+<header>
+    <link rel="stylesheet" href="header.css"/>
+
+	<label for="menu">Navigate:</label>
+	<select name="menu" id="menu">
+	  	<option value="index.php">Home</option>
+	  	<option value="add_player.php">Add Player</option>
+	  	<option value="player_search.php">Player Search</option>
+	  	<option value="signup.php">Sign Up</option>
+	  	<option value="About_Us.php">About Us</option>
+      <option value="testsearch.php">Test Search</option>
+	</select>
+
+	<script>
+	$( "#menu" ).selectmenu({
+	  	select: function() {
+	  		if($(this).val() != '') {
+	  			window.location = $(this).val();
+	  		}
+	  	}
+	  });
+	</script>
+
+			<h1 style="text-align:center; font-size: 250%;">Team Warriors</h1>
+			<canvas id="canvas" width="1100" height="120" style="text-align:center;"></canvas>
+		<nav>
+			<ul>
+				<li><a href="index.php" title="Homepage">Home</a></li>
+				<li><a href="add_player.php" title="Add a new player to the database"> Add Player </a></li>
+				<li><a href="player_search.php" title="Search for a player"> Player Search </a></li>
+				<li><a href="signup.php" title="Make a new account"> Sign Up </a></li>
+				<li><a href="About_Us.php" title="More about the creators of Team Warriors">About Us</a></li>
+        <li><a href="testsearch.php" title="Experimental Search">Test Search With Ajax</a></li>
+			</ul>
+			<script>
+			  $( document ).tooltip();
+			</script>
+		</nav>
+
+	<script>
+		//coordinates to control the placement of the logo
+		var startx= 630;
+		var starty = 25;
+
+		var canvas = document.getElementById('canvas');
+		var context = canvas.getContext('2d');
+		context.beginPath();
+		context.moveTo(startx, starty);
+		context.lineTo(startx + 35, starty - 20);
+		context.strokeStyle = 'yellow';
+		context.lineWidth = 7;
+		context.stroke();
+		context.beginPath();
+		context.moveTo(startx + 35, starty - 20);
+		context.lineTo(startx + 70, starty);
+		context.strokeStyle = '#yellow';
+		context.lineWidth = 7;
+		context.stroke();
+		context.beginPath();
+		context.moveTo(startx + 70, starty);
+		context.lineTo(startx + 70, starty + 35);
+		context.strokeStyle = '#yellow';
+		context.lineWidth = 7;
+		context.stroke();
+		context.beginPath();
+		context.moveTo(startx + 70, starty + 35);
+		context.lineTo(startx + 35, starty + 55);
+		context.strokeStyle = '#yellow';
+		context.lineWidth = 7;
+		context.stroke();
+		context.beginPath();
+		context.moveTo(startx + 35, starty + 55);
+		context.lineTo(startx, starty + 35 );
+		context.strokeStyle = '#yellow';
+		context.lineWidth = 7;
+		context.stroke();
+		context.beginPath();
+		context.moveTo(startx, starty + 35);
+		context.lineTo(startx, starty);
+		context.strokeStyle = '#yellow';
+		context.lineWidth = 7;
+		context.stroke();
+		context.font = '30pt Calibri';
+		context.strokeStyle = 'blue';
+		context.strokeText('W', startx + 16, starty + 33);
+
+	</script>
+</header>
