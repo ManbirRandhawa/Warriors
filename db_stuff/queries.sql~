@@ -70,11 +70,20 @@ foreign key (player_id) references players(player_id));
 insert into user_playerlist() values (1,1);
 insert into user_playerlist() values (1,2);
 
+/* query to get the user_id from the user */
+select user_id from users where email ='kevinyan@gmail.com'
+
+/* get player_id */
+SELECT players.player_id from players
+where players.first_name = 'stephen' and players.last_name = 'curry';
+
 /* query to get customize players from each user. the last where clause should be customized */
 SELECT players.first_name, players.last_name, statistics.points, statistics.assists, statistics.rebounds 
 from players, user_playerlist, statistics 
 where players.player_id = statistics.player_id  and user_playerlist.player_id = players.player_id and user_playerlist.user_id = 1 ;
 
-/*query to get the user_id from the user */
-select user_id from users where email ='kevinyan@gmail.com'
+
+
+
+
 

@@ -7,27 +7,25 @@
 	<script type = "text/javascript">
 		function validate()
         {
-            var firstName = document.getElementById("firstName").value;
-            var lastName = document.getElementById("lastName").value;        
+            var firstName = document.getElementById("playerName").value;     
             var errors = "";    
             if(firstName == "") {
-                errors += "Missing First Name.\n";
-            }  
-			if(lastName == "") {
-				errors += "Missing Last Name.\n";
-			}
+                errors += "Missing Name.\n";
+        
+            } 
 			var firstNameRE = /^[a-zA-Z'.-]{3,20}$/;
 			if(!firstNameRE.test(firstName)) {
-				errors += "Invalid First Name. Only letters, hyphens, apostrophes, and periods are accepted.\n"
+				errors += "Invalid Name. Only letters, hyphens, commas, and periods are accepted.\n"
+				
 			}
-			var lastNameRE = /^[a-zA-Z'.-]{3,20}$/;
-			if(!lastNameRE.test(lastName)) {
-				errors += "Invalid Last Name. Only letters, hyphens, apostrophes, and periods are accepted.\n"
-			}
-			
             if (errors != "") {
               alert(errors);
+              return false;
             }
+			else {
+				alert("Information was submitted successfully.");
+				return true;
+			}
         }
     </script>
 		
@@ -38,18 +36,21 @@
 		<fieldset>
 		<legend style="color:blue"> NBA Player Stats </legend>
 			<p>
-				<input type="text" name="firstName" placeHolder="Player's First Name" id="firstName">	
-		
-				<input type="text" name="lastName" placeHolder="Player's Last Name" id="lastName">
+				<input type="text" name="playerFirstName" placeHolder="Player's First Name" id="playerFirstName">	
 			</p>
+
+			<p>
+				<input type="text" name="playerLastName" placeHolder="Player's Last Name" id="playerLastName">	
+			</p>
+
 			<p>
 				Position 
 				<br>
-				<input type="radio" name="position" value="Shooting_Guard"> Shooting Guard <br>
-				<input type="radio" name="position" value="Point_Guard"> Point Guard <br>
-				<input type="radio" name="position" value="Small_Forward"> Small Forward <br>
-				<input type="radio" name="position" value="Power_Forward"> Power Forward <br>
-				<input type="radio" name="position" value="Center"> Center
+				<input type="radio" name="position" value="shootingGuard"> Shooting Guard <br>
+				<input type="radio" name="position" value="pointGuard"> Point Guard <br>
+				<input type="radio" name="position" value="smallForward"> Small Forward <br>
+				<input type="radio" name="position" value="powerForward"> Power Forward <br>
+				<input type="radio" name="position" value="center"> Center
 			</p>
 			<p>
 				<select name="team">
@@ -59,11 +60,11 @@
 					<option value="nets"> Brooklyn Nets </option>
 					<option value="hornets"> Charlotte Hornets </option>
 					<option value="bulls"> Chicago Bulls </option>
-					<option value="cavaliers"> Cleveland Cavaliers </option>
+					<option value="Cavaliers"> Cleveland Cavaliers </option>
 					<option value="mavericks"> Dallas Mavericks </option>
 					<option value="nuggets"> Denver Nuggets </option>
 					<option value="pistons"> Detroit Pistons </option>
-					<option value="warriors"> Golden State Warriors </option>
+					<option value="Warriors"> Golden State Warriors </option>
 					<option value="rockets"> Houston Rockets </option>
 					<option value="pacers"> Indiana Pacers </option>
 					<option value="clippers"> Los Angeles Clippers </option>
@@ -74,7 +75,7 @@
 					<option value="timberwolves"> Minnesota Timberwolves </option>
 					<option value="pelicans"> New Orleans Pelicans </option>
 					<option value="knicks"> New York Knicks </option>
-					<option value="thunder"> Oklahoma City Thunder </option>
+					<option value="Thunder"> Oklahoma City Thunder </option>
 					<option value="magic"> Orlando Magic </option>
 					<option value="76ers"> Philadelphia 76ers </option>
 					<option value="suns"> Phoenix Suns </option>
@@ -86,7 +87,7 @@
 					<option value="wizards"> Washington Wizards </option>
 				</select>
 			</p>
-			<input type = "submit" onclick = "validate()"> </button>
+			<input type = "submit" onclick ="return(validate());"> </button>
 		</fieldset>
 	</form>
 </body>

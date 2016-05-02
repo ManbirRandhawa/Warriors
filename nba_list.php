@@ -1,3 +1,8 @@
+<!--
+
+
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,50 +14,94 @@
 <?php include("header.html");?>
 
 <body style="background-color: #D8D8D8">
-	<h1> List of Players </h1>
+	<h1> Customized Table List </h1>
 	<?php
-		$name = filter_input(INPUT_POST, "playerName");
+		//$name = filter_input(INPUT_POST, "playerName");
 		$position = filter_input(INPUT_POST, "position");
 		$team = filter_input(INPUT_POST, "team");
 		
-		
-		//echo "$name , $position , $team ";
+		$firstName = filter_input(INPUT_POST, "firstName");
+		$lastName = filter_input(INPUT_POST, "lastName");
+		$player_id = "";
+		$user_id = 1;
+
+		//echo "$firstName, $lastName, $position , $team ";
 
 		try{
 			//access the database
 			$db = new PDO('mysql:host=localhost;dbname=Warriors;charset=utf8', 'root','');
 			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			
-			//insert to database
-			$stmt = $db->prepare("INSERT INTO player_list(name, position, team) VALUES(:name, :position, :team)");
-			$stmt->execute(array(':name'=>$name, ':position'=>$position, ':team'=>$team));
-			$affected = $stmt ->rowCount();
-			//echo "$affected";
+			
+			//gets the player_id from the submitted info
+			$playerid_query = "SELECT players.player_id from players,teams
+				 WHERE players.first_name = :firstName and players.last_name =:lastName and teams.team_name = :team";
+			$stmt = $db->prepare($playerid_query);
+			$stmt->execute(array(':firstName' => $firstName, ':lastName' => $lastName, ':team' => $team));
+			$row = $stmt->fetch();
+			$player_id = $row[0];
+			echo "player_id".$player_id."<br>";
 
-			print "		<table border='1'>\n";
+			//inserts the corresponding player_id and user_id into user_playerlist
+			$insert_userpl_query = "INSERT INTO user_playerlist() values (:user_id, :player_id)";
+			$stmt = $db->prepare($insert_userpl_query);
+			$stmt->execute(array(':user_id' => $user_id, ':player_id'=> $player_id));
+
+
+
+			//query to get values for table
+			$customize_table_query = "SELECT players.first_name, players.last_name, statistics.points, statistics.assists, statistics.rebounds, statistics.steals, statistics.turnovers, statistics.fgpercent, statistics.three_pt_percent 
+								      FROM players, user_playerlist, statistics 
+									  WHERE players.player_id = statistics.player_id and user_playerlist.player_id = players.player_id and user_playerlist.user_id = :user_id";
+			$stmt =$db->prepare($customize_table_query);
+			$stmt->execute(array(':user_id'=>$user_id));
 			
-			//query for database info
-			$query = "SELECT * FROM player_list"; //You don't need a ; like you do in SQL
-			
+
+			print "	<table border='1'>\n";
 			//display tables
 				echo "<table border=1>
 				<tr>
 				<th>Player Name</th>
-				<th>Position</th>
-				<th>Team</th>
+				<th>Points</th>
+				<th>Assists</th>
+				<th>Rebounds</th>
+				<th>Steals</th>
+				<th>Turnovers</th>
+				<th>Field Goal %</th>
+				<th>3 Point %</th>
 				</tr>";
-				foreach($db->query($query) as $row){
-					//echo $row['name']."    ".$row['position']."    ".$row['team']."<br>";
-					echo "<tr>";
-					echo "<td>" . $row['name'] . "</td>";
-					echo "<td>" . $row['position'] . "</td>";
-					echo "<td>" . $row['team'] . "</td>";
-					echo "</tr>";
-				}
-				echo "</table>";
+			while($row = $stmt ->fetch()){
+				/*
+				//index... 0=first name, 1=last name, 2=points, 3=assist, 4=rebounds, 5=steals, 6=turnovers, 7=fg%, 8=3pt%
+				$player_name = $row[0]." ".$row[1]; //first name and last name combined
+			//$points2 = $row[1];
+			$points2 = $row[2]; //points
+			$points3 = $row[3]; //assists
+			$points4 = $row[4]; //rebounds
+			$points5 = $row[5];
+			$points6 = $row[6];
+			$points7 = $row[7];
+			$points8 = $row[8];
 
 
+			echo $player_name." ".$points2." ".$points3." ".$points4." ".$points5." ".$points6." ".$points7." ".$points8;
+			echo "<br>";
+				*/
 
+			echo "<tr>";
+			echo "<td>" . $row[0]." ".$row[1] . "</td>"; //first name + last name
+			echo "<td>" . $row[2] . "</td>"; //points
+			echo "<td>" . $row[3] . "</td>"; //assists
+			echo "<td>" . $row[4] . "</td>"; //rebounds 
+			echo "<td>" . $row[5] . "</td>"; //steals
+			echo "<td>" . $row[6] . "</td>"; //turnovers
+			echo "<td>" . $row[7] . "</td>"; //fg%
+			echo "<td>" . $row[8] . "</td>"; //3pt fg%
+			echo "</tr>";
+
+
+			}
+			echo "</table>";
 		}
 
 		catch(PDOException $ex){
