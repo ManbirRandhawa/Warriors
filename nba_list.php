@@ -50,9 +50,9 @@
 
 
 			//query to get values for table
-			$customize_table_query = "SELECT players.first_name, players.last_name, statistics.points, statistics.assists, statistics.rebounds, statistics.steals, statistics.turnovers, statistics.fgpercent, statistics.three_pt_percent 
-								      FROM players, user_playerlist, statistics 
-									  WHERE players.player_id = statistics.player_id and user_playerlist.player_id = players.player_id and user_playerlist.user_id = :user_id";
+			$customize_table_query = "SELECT teams.team_name, players.first_name, players.last_name, player_positions.position_name, statistics.points, statistics.assists, statistics.rebounds, statistics.steals, statistics.turnovers, statistics.fgpercent, statistics.three_pt_percent 
+								      FROM players, user_playerlist, statistics, teams, player_positions 
+									  WHERE teams.team_name = players.team_name and player_positions.position_name = players.position_name and players.player_id = statistics.player_id and user_playerlist.player_id = players.player_id and user_playerlist.user_id = :user_id";
 			$stmt =$db->prepare($customize_table_query);
 			$stmt->execute(array(':user_id'=>$user_id));
 			
@@ -61,7 +61,9 @@
 			//display tables
 				echo "<table border=1>
 				<tr>
-				<th>Player Name</th>
+				<th>Team</th>
+				<th>Player</th>
+				<th>Position</th>
 				<th>Points</th>
 				<th>Assists</th>
 				<th>Rebounds</th>
@@ -89,14 +91,16 @@
 				*/
 
 			echo "<tr>";
-			echo "<td>" . $row[0]." ".$row[1] . "</td>"; //first name + last name
-			echo "<td>" . $row[2] . "</td>"; //points
-			echo "<td>" . $row[3] . "</td>"; //assists
-			echo "<td>" . $row[4] . "</td>"; //rebounds 
-			echo "<td>" . $row[5] . "</td>"; //steals
-			echo "<td>" . $row[6] . "</td>"; //turnovers
-			echo "<td>" . $row[7] . "</td>"; //fg%
-			echo "<td>" . $row[8] . "</td>"; //3pt fg%
+			echo "<td>" . $row[0] . "</td>";
+			echo "<td>" . $row[1]." ".$row[2] . "</td>"; //first name + last name
+			echo "<td>" . $row[3] . "</td>"; //position
+			echo "<td>" . $row[4] . "</td>"; //points
+			echo "<td>" . $row[5] . "</td>"; //assists
+			echo "<td>" . $row[6] . "</td>"; //rebounds 
+			echo "<td>" . $row[7] . "</td>"; //steals
+			echo "<td>" . $row[8] . "</td>"; //turnovers
+			echo "<td>" . $row[9] . "</td>"; //fg%
+			echo "<td>" . $row[10] . "</td>"; //3pt fg%
 			echo "</tr>";
 
 

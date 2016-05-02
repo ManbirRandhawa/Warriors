@@ -78,12 +78,13 @@ SELECT players.player_id from players, teams
 where players.first_name = 'stephen' and players.last_name = 'curry' and teams.team_name = 'warriors';
 
 /* query to get customize players from each user. the last where clause should be customized */
-SELECT players.first_name, players.last_name, statistics.points, statistics.assists, statistics.rebounds 
-from players, user_playerlist, statistics 
-where players.player_id = statistics.player_id  and user_playerlist.player_id = players.player_id and user_playerlist.user_id = 1 ;
+SELECT teams.team_name, players.first_name, players.last_name, player_positions.position_name, statistics.points, statistics.assists, statistics.rebounds, statistics.steals, statistics.turnovers, statistics.fgpercent, statistics.three_pt_percent 
+                      FROM players, user_playerlist, statistics, teams, player_positions 
+                    WHERE teams.team_name = players.team_name and player_positions.position_name = players.position_name and players.player_id = statistics.player_id and user_playerlist.player_id = players.player_id and user_playerlist.user_id = 1
 
-
-
-
-
-
+/*query to get full list */
+SELECT teams.team_name, players.first_name, players.last_name, player_positions.position_name, statistics.points, 
+statistics.assists, statistics.rebounds, statistics.steals, statistics.turnovers, statistics.fgpercent, statistics.three_pt_percent 
+FROM players, statistics, teams, player_positions 
+WHERE teams.team_name = players.team_name and player_positions.position_name = players.position_name and 
+players.player_id = statistics.player_id
