@@ -45,32 +45,32 @@
 	<form action="post_signup.php" method="POST" onsubmit="return(validate());">
 		<p>
 			<label for ="first_name"> First Name: </label>
-			<input type = "text" id="first_name"/>
+			<input type = "text" name=firstName id="first_name"/>
 		</p>
 
 		<p>
 			<label for ="last_name"> Last Name: </label>
-			<input type ="text" id="last_name"/>
+			<input type ="text" name=lastName id="last_name"/>
 		</p>
 
 		<p>
 			<label for ="birthday"> Birthday: </label>
-			<input type ="date" id="birthday"/>
+			<input type ="date" name=date id="birthday"/>
 		</p>
 
 		<p>
 			<label for ="email"> Email: </label>
-			<input type ="email" id="email"/>
+			<input type ="email" name=email id="email"/>
 		</p>
 
 		<p>
 			<label for="password1"> Password: </label>
-			<input type="password" id="password1"/>
+			<input type="password" name=password id="password1"/>
 		</p>
 
 		<p>
 			<label for="password2"> Re-enter Password: </label>
-			<input type="password" id="password2"/>
+			<input type="password" name=password2 id="password2"/>
 		</p>
 
 		<p>

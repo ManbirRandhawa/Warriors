@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 02, 2016 at 02:23 AM
+-- Generation Time: May 03, 2016 at 11:01 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -40,8 +40,8 @@ CREATE TABLE `players` (
 
 INSERT INTO `players` (`player_id`, `first_name`, `last_name`, `position_name`, `team_name`) VALUES
 (1, 'Stephen', 'Curry', 'Point_Guard', 'Warriors'),
-(2, 'Klay', 'Thompson', 'Point_Guard', 'Warriors'),
-(3, 'Draymond', 'Green', 'Point_Guard', 'Warriors');
+(2, 'Klay', 'Thompson', 'Shooting_Guard', 'Warriors'),
+(3, 'Draymond', 'Green', 'Power_Forward', 'Warriors');
 
 -- --------------------------------------------------------
 
@@ -86,7 +86,7 @@ CREATE TABLE `statistics` (
 --
 
 INSERT INTO `statistics` (`player_id`, `points`, `assists`, `rebounds`, `steals`, `turnovers`, `fgpercent`, `three_pt_percent`) VALUES
-(1, '30.1', '6.7', '5.4', '2.1', '3.3', '0.54', '0.45'),
+(1, '30.1', '6.7', '5.4', '2.1', '3.3', '0.50', '0.45'),
 (2, '22.1', '6.7', '3.8', '0.8', '1.7', '0.47', '0.42'),
 (3, '14.0', '7.4', '9.5', '1.5', '3.2', '0.49', '0.38');
 
@@ -148,8 +148,8 @@ CREATE TABLE `user_playerlist` (
 --
 
 INSERT INTO `user_playerlist` (`user_id`, `player_id`) VALUES
-(1, 1),
-(1, 2);
+(1, NULL),
+(1, 1);
 
 --
 -- Indexes for dumped tables
@@ -208,7 +208,7 @@ ALTER TABLE `players`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
