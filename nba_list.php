@@ -13,9 +13,13 @@ session_start();
 <?php include("header.html");?>
 
 <body style="background-color: #D8D8D8">
-	<h1> Customized Table List </h1>
+	
 	<?php
-
+	
+	//if users is logined
+	if(isset($_SESSION['login_user']) && !empty($_SESSION['login_user'])) {
+		
+		echo "<h1> Customized Table List </h1>";
 		//$name = filter_input(INPUT_POST, "playerName");
 		$position = filter_input(INPUT_POST, "position");
 		$team = filter_input(INPUT_POST, "team");
@@ -112,9 +116,12 @@ session_start();
 			}
 			echo "</table>";
 		}
-
 		catch(PDOException $ex){
 			echo 'ERROR:'.$ex->getMessage();
+		}
+	}//end of if
+		else{
+			echo "<h1> User must login first </h1>";
 		}
 	?>
 </body>
