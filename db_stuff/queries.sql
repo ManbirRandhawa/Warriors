@@ -88,3 +88,9 @@ statistics.assists, statistics.rebounds, statistics.steals, statistics.turnovers
 FROM players, statistics, teams, player_positions 
 WHERE teams.team_name = players.team_name and player_positions.position_name = players.position_name and 
 players.player_id = statistics.player_id
+
+
+/*mysql dump*/
+/*!40101 DROP DATABASE IF EXISTS `Warriors` */;
+//set default DATABASE
+//create database warrior

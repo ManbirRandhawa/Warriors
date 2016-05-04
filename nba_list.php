@@ -1,7 +1,6 @@
-<!--
-
-
--->
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +15,7 @@
 <body style="background-color: #D8D8D8">
 	<h1> Customized Table List </h1>
 	<?php
+
 		//$name = filter_input(INPUT_POST, "playerName");
 		$position = filter_input(INPUT_POST, "position");
 		$team = filter_input(INPUT_POST, "team");
@@ -23,16 +23,21 @@
 		$firstName = filter_input(INPUT_POST, "firstName");
 		$lastName = filter_input(INPUT_POST, "lastName");
 		$player_id = "";
-		$user_id = 1;
-
-		//echo "$firstName, $lastName, $position , $team ";
+		$user_id = 0;
+		$email = $_SESSION['login_user'];
+		echo "$email, $firstName, $lastName, $position , $team ";
 
 		try{
 			//access the database
 			$db = new PDO('mysql:host=localhost;dbname=Warriors;charset=utf8', 'root','');
 			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			
-			
+			$userid_query = "SELECT users.user_id from users where email=:email";
+			$stmt = $db->prepare($userid_query);
+			$stmt->execute(array(':email' => $email));
+			$row = $stmt->fetch();
+			$user_id = $row[0];
+
 			//gets the player_id from the submitted info
 			$playerid_query = "SELECT players.player_id from players,teams
 				 WHERE players.first_name = :firstName and players.last_name =:lastName and teams.team_name = :team";
