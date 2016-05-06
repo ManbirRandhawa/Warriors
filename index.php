@@ -7,6 +7,10 @@
 
 <?php include("header.html");?>
 
+<body>
+	<h1> Welcome! Check out NBA Player Stats! </h1>
 </body>
+
+
 
 </html>
