@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include("header.html"); ?>
+<?php include("headers.html"); ?>
 
 <head>
- <link rel="stylesheet" href="header.css"/>
 <script>
 	function validate(){
 		//regex

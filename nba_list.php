@@ -147,7 +147,7 @@ session_start();
 			echo 'ERROR:'.$ex->getMessage();
 		}
 		echo "<br>";
-		echo "<a style='color:black;' href='add_player.php'> Want to add more players?</a>";
+		echo "<a style='color:black;' href='add_player.php'> Click here to add more players</a>";
 	}//end of if
 		else{
 			echo "<h1 > User must login first </h1>";
