@@ -92,5 +92,6 @@ players.player_id = statistics.player_id
 
 /*mysql dump*/
 /*!40101 DROP DATABASE IF EXISTS `Warriors` */;
-//set default DATABASE
-//create database warrior
+CREATE DATABASE `Warriors`;
+
+USE `Warriors`;

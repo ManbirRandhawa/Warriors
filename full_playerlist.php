@@ -80,13 +80,13 @@
 
 
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
-<script type = "text/javascript" src  = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script type = "text/javascript" src  = "https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#table_stats').DataTable( {
-        "order": [[ 1, "desc" ]]
-    } );
+	<script type = "text/javascript" src  = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script type = "text/javascript" src  = "https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+    		$('#table_stats').DataTable( {
+        	"order": [[ 1, "desc" ]]
+    	} );
 
 } ); 
 </script>
