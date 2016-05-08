@@ -30,7 +30,7 @@ session_start();
 		$player_id = "";
 		$user_id = 0;
 		$email = $_SESSION['login_user'];
-		echo "$email, $firstName, $lastName, $position , $team ";
+		//echo "$email, $firstName, $lastName, $position , $team ";
 
 		try{
 			//access the database
@@ -50,7 +50,7 @@ session_start();
 			$stmt->execute(array(':firstName' => $firstName, ':lastName' => $lastName, ':team' => $team));
 			$row = $stmt->fetch();
 			$player_id = $row[0];
-			echo "player_id".$player_id."<br>";
+			//echo "player_id".$player_id."<br>";
 
 			//inserts the corresponding player_id and user_id into user_playerlist
 			$insert_userpl_query = "INSERT INTO user_playerlist() values (:user_id, :player_id)";

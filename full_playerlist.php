@@ -34,23 +34,27 @@
 			$stmt->execute();
 			
 
-			print "	<table border='1'>\n";
-			//display tables
-				echo "<table border=1>
+					//display tables
+				echo '<table id="table_stats" class="display" cellspacing="0" width="100%" >
+				<thead>
 				<tr>
-				<th>Team</th>
-				<th>Player</th>
-				<th>Position</th>
-				<th>Points</th>
-				<th>Assists</th>
-				<th>Rebounds</th>
-				<th>Steals</th>
-				<th>Turnovers</th>
-				<th>Field Goal %</th>
-				<th>3 Point %</th>
-				</tr>";
+					<th>Team</th>
+					<th>Player</th>
+					<th>Position</th>
+					<th>Points</th>
+					<th>Assists</th>
+					<th>Rebounds</th>
+					<th>Steals</th>
+					<th>Turnovers</th>
+					<th>Field Goal %</th>
+					<th>3 Point %</th>
+				</tr>
+				</thead>';
+				echo "<tbody>";
+
 			while($row = $stmt ->fetch()){
 		
+			
 			echo "<tr>";
 			echo "<td>" . $row[0] . "</td>";
 			echo "<td>" . $row[1]." ".$row[2] . "</td>"; //first name + last name
@@ -63,9 +67,9 @@
 			echo "<td>" . $row[9] . "</td>"; //fg%
 			echo "<td>" . $row[10] . "</td>"; //3pt fg%
 			echo "</tr>";
-
-
 			}
+
+			echo "</tbody>";
 			echo "</table>";
 		}
 
@@ -73,5 +77,19 @@
 			echo 'ERROR:'.$ex->getMessage();
 		}
 	?>
+
+
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+<script type = "text/javascript" src  = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type = "text/javascript" src  = "https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#table_stats').DataTable( {
+        "order": [[ 1, "desc" ]]
+    } );
+
+} ); 
+</script>
+
 </body>
 </html>
