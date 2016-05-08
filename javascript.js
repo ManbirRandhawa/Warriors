@@ -111,11 +111,11 @@ function parseMessages(responseXML) {
 
             for (loop = 0; loop < players.childNodes.length; loop++) {
                 var player = players.childNodes[loop];
-                var firstName = player.getElementsByTagName("firstName")[0];
-                var lastName = player.getElementsByTagName("lastName")[0];
-                var playerId = player.getElementsByTagName("id")[0];
-                appendplayer(firstName.childNodes[0].nodeValue,
-                    lastName.childNodes[0].nodeValue,
+                var name = player.getElementsByTagName("name")[0];
+                var position = player.getElementsByTagName("position")[0];
+                var playerId = player.getElementsByTagName("playerId")[0];
+                appendplayer(name.childNodes[0].nodeValue,
+                    position.childNodes[0].nodeValue,
                     playerId.childNodes[0].nodeValue);
             }
         }

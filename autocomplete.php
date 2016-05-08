@@ -2,6 +2,7 @@
 
 require_once("playerData.php");
 
+
 session_start();
 
 $playerData = new playerData();
@@ -12,18 +13,20 @@ $namesAdded = false;
 
 // simple matching for start of first or last name, or both
 if (isset($_GET['action']) && $_GET['action'] == "complete") {
+    
     foreach ($players as $player) {
-        if (!is_numeric($_GET['id']) &&
-                // if id matches first name
-                (stripos($player->firstName, $_GET['id']) === 0 ||
-                // if id matches last name
-                stripos($player->lastName, $_GET['id']) === 0) ||
-                // if id matches full name
-                stripos($player->firstName . " " . $player->lastName, $_GET['id']) === 0) {
+/*
+         if (!is_numeric($_GET['playerId']) && (stripos($player->name, $_GET['playerId'])) === 0)
+                {
 
             $results[] = $player;
-        }
+            
+        }*/
+        $results[] = $player;
     }
+    
+        
+    
 
     // prepare xml data
     if (sizeof($results) != 0) {
@@ -31,14 +34,16 @@ if (isset($_GET['action']) && $_GET['action'] == "complete") {
         echo "<players>";
         foreach ($results as $result) {
             echo "<player>";
-            echo "<id>" . $result->id . "</id>";
-            echo "<firstName>" . $result->firstName . "</firstName>";
-            echo "<lastName>" . $result->lastName . "</lastName>";
+            echo "<playerId>" . $result->playerId . "</playerId>";
+            echo "<name>" . $result->name . "</name>";
+            echo "<position>" . $result->position . "</position>";
+            echo "<team>" . $result->team . "</team>";
             echo "</player>";
         }
         echo "</players>";
     }
 }
+
 
 // if user chooses from pop-up box
 if (isset($_GET['action']) && isset($_GET['id']) && $_GET['action'] == "lookup") {
@@ -54,4 +59,5 @@ if (isset($_GET['action']) && isset($_GET['id']) && $_GET['action'] == "lookup")
         }
     }
 }
+
 ?>

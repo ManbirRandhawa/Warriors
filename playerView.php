@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$id = $_SESSION ["id"];
+$playerId = $_SESSION ["playerId"];
 $firstName = $_SESSION ["firstName"];
 $lastName = $_SESSION ["lastName"];
 $category = $_SESSION ["category"];
