@@ -3,6 +3,12 @@
 
 <?php include("headers.html"); ?>
 
+<head>
+	<title>  Sign up Complete | Team Warriors</title>
+        <meta name="keywords" content="NBA Statistics, NBA, Statistics, Sign up">
+        <meta name="description" content="Sign up">
+        <meta name ="author" content="Kevin Y">
+</head>
 <body>
 <h1> Thank you for signing up! </h1>
 	<?php

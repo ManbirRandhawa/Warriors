@@ -67,7 +67,7 @@ function appendplayer(firstName,lastName,playerId) {
 
     linkElement = document.createElement("a");
     linkElement.className = "popupItem";
-    linkElement.setAttribute("href", "autocomplete.php?action=lookup&id=" + playerId);
+  //  linkElement.setAttribute("href", "autocomplete.php?action=lookup&id=" + playerId);
     linkElement.appendChild(document.createTextNode(firstName + " " + lastName));
     cell.appendChild(linkElement);
 }
