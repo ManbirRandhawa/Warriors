@@ -32,7 +32,7 @@
     </script>
 		
 </head>
-<?php include("header.html");?>
+<?php include("headers.html");?>
 <body>
 	<form action="nba_list.php" method="post">
 		<fieldset>

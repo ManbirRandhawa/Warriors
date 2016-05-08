@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="header.css"/>	
 </head>
 
-<?php include("header.html");?>
+<?php include("headers.html");?>
 
 <body style="background-color: #D8D8D8">
 	<h1> Search Results </h1>

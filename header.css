@@ -4,17 +4,13 @@ CSS for the header of every page
 header {
 	background: black;
 	color: white;
-	padding: 15px 15px 0 15px;
 }
 
 header h1 {
-	margin: 0;
 	display: block;
 }
 
 nav ul{
-	margin: 0;
-	padding: 0 0 0 15px;
 	display: inline;
 }
 
@@ -23,7 +19,6 @@ nav ul li{
 	color: white;
 	display: inline-block;
 	list-style-type: none;
-	padding: 5px 5px;
 }
 
 nav ul li a {
@@ -40,6 +35,4 @@ a:visited{
 
 body{
 	background-color: #D8D8D8;
-	margin: auto;
-    padding: 10px;
 }

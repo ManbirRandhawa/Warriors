@@ -7,7 +7,7 @@
 	<title> Player Search </title>
 	<link rel="stylesheet" href="header.css"/>
 </head>
-<?php include("header.html");?>
+<?php include("headers.html");?>
 <body>
 	<form action="results.php" method="post">
 		<fieldset>

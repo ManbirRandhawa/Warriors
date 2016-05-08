@@ -1,20 +1,18 @@
 <?php
 include('login.php'); // Includes Login Script
-include('header.html');
+include('headers.html');
 if(isset($_SESSION['login_user'])){
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login Form in PHP with Session</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div id="main">
-<h1>PHP Login Session Example</h1>
 <div id="login">
-<h2>Login Form</h2>
+<h2>Login</h2>
 <form action="" method="post">
 <label>UserName :</label>
 <input id="name" name="username" placeholder="username" type="text">

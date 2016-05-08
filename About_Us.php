@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<?php include("header.html");?>      
+<?php include("headers.html");?>      
 
 <head>
 	<title> About Us </title>

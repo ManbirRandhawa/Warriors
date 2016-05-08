@@ -8,10 +8,10 @@
 
 <head> 
 	<title> NBA Datasets </title>
-	<link rel="stylesheet" href="header.css"/>	
+	<link rel="stylesheet" href="headers.css"/>	
 </head>
 
-<?php include("header.html");?>
+<?php include("headers.html");?>
 
 <body style="background-color: #D8D8D8">
 	<h1> Full NBA List </h1>

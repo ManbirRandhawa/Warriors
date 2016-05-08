@@ -1,7 +1,7 @@
 <DOCTYPE html>
 <html lang="en">
 
-<?php include("header.html"); ?>
+<?php include("headers.html"); ?>
 
 <body>
 <h1> Thank you for signing up! </h1>
