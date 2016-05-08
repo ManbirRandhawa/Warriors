@@ -6,7 +6,10 @@ session_start();
 <html lang="en">
 
 <head> 
-	<title> NBA Datasets </title>
+	<title> Your Customize List | Team Warriors</title>
+	<meta name="keywords" content="NBA Statistics, Customized, NBA Players, NBA, Statistics">
+	<meta name="description" content="Individual Users customized list of nba player's statistics">
+	<meta name ="author" content="Kevin Y">
 	<!--<link rel="stylesheet" href="header.css"/>	-->
 
 </head>

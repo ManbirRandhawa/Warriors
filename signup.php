@@ -4,6 +4,11 @@
 <?php include("headers.html"); ?>
 
 <head>
+<title> Sign Up | Team Warriors</title>
+	<meta name="keywords" content="NBA Statistics, Sign up, Statistics">
+	<meta name="description" content="Sign up page">
+	<meta name ="author" content="Kevin Y">
+
 <script>
 	function validate(){
 		//regex

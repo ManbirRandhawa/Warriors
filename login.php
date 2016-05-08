@@ -1,3 +1,9 @@
+<head>
+<title> Login | Team Warriors</title>
+<meta name="keywords" content="NBA Statistics, Login, Statistics">
+	<meta name="description" content="Login to account">
+	<meta name ="author" content="Andy P">
+</head>
 <?php
 session_start(); // Starting Session
 $error=''; // Variable To Store Error Message

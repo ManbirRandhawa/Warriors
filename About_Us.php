@@ -4,8 +4,11 @@
 <?php include("headers.html");?>      
 
 <head>
-	<title> About Us </title>
-    <link rel="stylesheet" href="About_Us_CSS.css"/>
+    <title> About Us | Team Warriors</title>
+    <meta name="keywords" content="NBA Statistics, About Us, Statistics">
+	<meta name="description" content="Brief description of project team members">
+	<meta name ="author" content="Kevin Y">
+	<link rel="stylesheet" href="About_Us_CSS.css"/>
 </head>
 <body>
 

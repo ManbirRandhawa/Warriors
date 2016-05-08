@@ -7,14 +7,17 @@
 <html lang="en">
 
 <head> 
-	<title> NBA Datasets </title>
+	<title> Player Statistics | Team Warriors</title>
+	<meta name="keywords" content="NBA Statistics, Complete, NBA, Statistics">
+	<meta name="description" content="Complete list of nba player's statistics">
+	<meta name ="author" content="Kevin Y">
 	<link rel="stylesheet" href="headers.css"/>	
 </head>
 
 <?php include("headers.html");?>
 
 <body style="background-color: #D8D8D8">
-	<h1> Full NBA List </h1>
+	<h1> Complete NBA List </h1>
 	<?php
 		
 
