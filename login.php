@@ -30,7 +30,6 @@ $query = mysql_query("select * from users where password='$password' AND email='
 
 $rows = mysql_num_rows($query);
 echo $rows[0];
-    echo '5';
 if ($rows == 1) {
 $_SESSION['login_user']=$username; // Initializing Session
     

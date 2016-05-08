@@ -1,8 +1,7 @@
 <?php
 include('login.php'); // Includes Login Script
 include('headers.html');
-if(isset($_SESSION['login_user'])){
-}
+
 ?>
 <!DOCTYPE html>
 <html>

@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 	<title> NBA Players </title>
-	<link rel="stylesheet" href="header.css"/>
 	
 	<script type = "text/javascript">
 		function validate()
@@ -11,22 +10,26 @@
             var lastName = document.getElementById("lastName").value;        
             var errors = "";    
             if(firstName == "") {
-                errors += "Missing First Name.\n";
+                errors += "Missing First Name.\n\n";
             }  
 			if(lastName == "") {
-				errors += "Missing Last Name.\n";
+				errors += "Missing Last Name.\n\n";
 			}
 			var firstNameRE = /^[a-zA-Z'.-]{3,20}$/;
 			if(!firstNameRE.test(firstName)) {
-				errors += "Invalid First Name. Only letters, hyphens, apostrophes, and periods are accepted.\n"
+				errors += "Invalid First Name. Only letters, hyphens, apostrophes, and periods are accepted.\n\n"
 			}
 			var lastNameRE = /^[a-zA-Z'.-]{3,20}$/;
 			if(!lastNameRE.test(lastName)) {
-				errors += "Invalid Last Name. Only letters, hyphens, apostrophes, and periods are accepted.\n"
+				errors += "Invalid Last Name. Only letters, hyphens, apostrophes, and periods are accepted.\n\n"
 			}
 			
             if (errors != "") {
               alert(errors);
+              return false;
+            }
+            else{
+            	return true;
             }
         }
     </script>
@@ -86,7 +89,7 @@
 					<option value="wizards"> Washington Wizards </option>
 				</select>
 			</p>
-			<input type = "submit" onclick = "validate()"> </button>
+			<input type="submit" onclick ="return(validate());"> </button>
 		</fieldset>
 	</form>
 </body>
