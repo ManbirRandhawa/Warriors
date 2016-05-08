@@ -2,16 +2,16 @@
 
 class player {
 
-    public $playerId;
-    public $name;
-    public $position;
-    public $team;
+    public $player_id;
+    public $first_name;
+    public $last_name;
+    public $position_name;
 
-    function __construct($playerId, $name, $position, $team) {
-        $this->playerId = $playerId;
-        $this->name = $name;
-        $this->position = $position;
-        $this->team = $team;
+    function __construct($player_id, $first_name, $last_name, $position_name) {
+        $this->player_id = $player_id;
+        $this->first_name = $first_name;
+        $this->last_name = $last_name;
+        $this->position_name = $position_name;
     }
 }
 ?>

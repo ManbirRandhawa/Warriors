@@ -32,14 +32,14 @@ public $con;
 }
    
 
-       $this->sql="SELECT * FROM player_list";
+       $this->sql="SELECT * FROM players";
       $this->result = mysqli_query($this->con,$this->sql);
         //new player(playerId, name, position, team);
        $this->players = array();
 
         while($row = mysqli_fetch_array($this->result)) {
 
-            $this->players[] = new player($row['playerId'], $row['name'], $row['position'], $row['team']);
+            $this->players[] = new player($row['player_id'], $row['first_name'], $row['last_name'], $row['position_name']);
 
             }
 

@@ -15,6 +15,19 @@ $namesAdded = false;
 if (isset($_GET['action']) && $_GET['action'] == "complete") {
     
     foreach ($players as $player) {
+
+        if (!is_numeric($_GET['id']) &&
+                // if id matches first name
+                (stripos($player->first_name, $_GET['id']) === 0 ||
+                // if id matches last name
+                stripos($player->last_name, $_GET['id']) === 0) ||
+                // if id matches full name
+                stripos($player->first_name . " " . $player->last_name, $_GET['id']) === 0) {
+
+            $results[] = $player;
+        }
+    }
+
 /*
          if (!is_numeric($_GET['playerId']) && (stripos($player->name, $_GET['playerId'])) === 0)
                 {
@@ -22,8 +35,8 @@ if (isset($_GET['action']) && $_GET['action'] == "complete") {
             $results[] = $player;
             
         }*/
-        $results[] = $player;
-    }
+        //$results[] = $player;
+    //}
     
         
     
@@ -34,10 +47,10 @@ if (isset($_GET['action']) && $_GET['action'] == "complete") {
         echo "<players>";
         foreach ($results as $result) {
             echo "<player>";
-            echo "<playerId>" . $result->playerId . "</playerId>";
-            echo "<name>" . $result->name . "</name>";
-            echo "<position>" . $result->position . "</position>";
-            echo "<team>" . $result->team . "</team>";
+            echo "<player_id>" . $result->player_id . "</player_id>";
+            echo "<first_name>" . $result->first_name . "</first_name>";
+            echo "<last_name>" . $result->last_name . "</last_name>";
+            echo "<position_name>" . $result->position_name . "</position_name>";
             echo "</player>";
         }
         echo "</players>";

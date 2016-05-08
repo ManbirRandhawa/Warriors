@@ -111,12 +111,14 @@ function parseMessages(responseXML) {
 
             for (loop = 0; loop < players.childNodes.length; loop++) {
                 var player = players.childNodes[loop];
-                var name = player.getElementsByTagName("name")[0];
-                var position = player.getElementsByTagName("position")[0];
-                var playerId = player.getElementsByTagName("playerId")[0];
-                appendplayer(name.childNodes[0].nodeValue,
-                    position.childNodes[0].nodeValue,
-                    playerId.childNodes[0].nodeValue);
+                var first_name = player.getElementsByTagName("first_name")[0];
+                var last_name = player.getElementsByTagName("last_name")[0];
+                var position_name = player.getElementsByTagName("position_name")[0];
+                var player_id = player.getElementsByTagName("player_id")[0];
+                appendplayer(first_name.childNodes[0].nodeValue,
+                    last_name.childNodes[0].nodeValue,
+                    position_name.childNodes[0].nodeValue,
+                    player_id.childNodes[0].nodeValue);
             }
         }
     }
